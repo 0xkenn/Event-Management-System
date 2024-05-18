@@ -8,7 +8,7 @@ A web-based application designed to streamline the planning, management, and exe
 ### Key Functionalities
 
 1. **Event Creation and Management**
-   - Allows users to create and manage events by selecting from various event categories.
+   - Allows users to create and manage events by selecting from various Universities categories.
    - Provides detailed scheduling options including date, time, and venue selection.
 
 2. **Organizer Registration**
