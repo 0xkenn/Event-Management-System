@@ -20,15 +20,11 @@ A web-based application designed to streamline the planning, management, and exe
    - Allows users to create and manage events by selecting from various event categories.
    - Provides detailed scheduling options including date, time, and venue selection.
 
-2. **User Registration**
+2. **Organizer Registration**
    - Users can sign up and log in to view and register for upcoming events.
    - Registration information is stored in a database for easy access and management.
 
-3. **Automated Notifications**
-   - Sends notifications to users about upcoming events and registration confirmations.
-   - Keeps users informed of any changes or updates related to their registered events.
-
-4. **Admin Dashboard**
+4. **Organizer Dashboard**
    - Admins can view, approve, or reject event registrations.
    - Provides tools for managing participant details, event logistics, and generating reports.
 
@@ -40,17 +36,6 @@ A web-based application designed to streamline the planning, management, and exe
    - Ensures secure handling of user data with robust authentication and authorization features.
    - Data is managed efficiently to prevent loss and unauthorized access.
 
-### Technologies Used
-
-- **PHP**: Scripting language for server-side web development.
-- **Laravel**: Web application framework for PHP.
-- **Laravel Breeze**: Simple implementation of authentication features.
-- **Laravel Blade**: Templating engine for dynamic content.
-- **HTML & CSS**: Markup and styling for web pages.
-- **VS Code**: Source code editor.
-- **XAMPP**: Local web server for development and testing.
-- **MySQL**: Relational database management system.
-- **Apache Server**: Web server for hosting the application.
 
 ### Getting Started
 
