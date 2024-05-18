@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Faker\Core\DateTime;
 use Illuminate\Http\Request;
+
+use function Symfony\Component\Clock\now;
 
 class EventIndexController extends Controller
 {
@@ -12,7 +15,14 @@ class EventIndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $events = Event::with('university')->orderBy('created_at', 'desc')->paginate(12);
+        $currentTime = now();
+
+
+        $events = Event::with('university')
+            ->where('start_time', '<=', $currentTime)
+            ->where('end_time', '>=', $currentTime)->get();
+
+        // dd($events);
         return view('eventIndex', compact('events'));
     }
 }

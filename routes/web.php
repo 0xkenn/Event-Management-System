@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AttendanceSystemController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventIndexController;
 use App\Http\Controllers\EventShowController;
@@ -20,9 +21,7 @@ Route::get('/e', EventIndexController::class)->name('eventIndex');
 Route::get('/e/{id}', EventShowController::class)->name('eventShow');
 Route::get('/gallery', GalleryIndexController::class)->name('galleryIndex');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,6 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/events', EventController::class);
     Route::resource('/galleries', GalleryController::class);
     Route::get('/saved-events', SavedEventController::class)->name('savedEvents');
+
+
 
     Route::post('/events-saved/{id}', [SaveSystemController::class, '__invoke']);
 

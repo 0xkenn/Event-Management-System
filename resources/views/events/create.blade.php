@@ -12,7 +12,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
            
-            <form method="post" action="{{ route('events.store') }}" x-data="{
+            <form method="post" action="{{route('events.store')}}" x-data="{
                 university: null,
                 venue: null,
                 venues: [],
@@ -41,7 +41,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
                             option</label>
                         <select id="university_id" x-model="university" x-on:change="onUniversityChange" name="university_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  value={{old('university')}}>
                             <option>Choose a University</option>
                             @foreach ($universities as $university)
                                 <option :value="{{ $university->id }}">{{ $university->name }}</option>
@@ -58,7 +58,7 @@
                         <select id="venue_id" name="venue_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <template x-for="venue in venues" :key="venue.id">
-                                <option x-bind:value="venue.id" x-text="venue.name"></option>
+                                <option x-bind:value="venue.id" x-text="venue.name" ></option>
                             </template>
                         </select>
                         @error('venue_id')
@@ -76,34 +76,30 @@
                             <div class="text-sm text-red-400">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div>
-                        <label for="start_date"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start Date</label>
-                        <input type="date" id="start_date" name="start_date"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Laravel event">
-                        @error('start_date')
-                            <div class="text-sm text-red-400">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End
-                            Date</label>
-                        <input type="date" id="end_date" name="end_date"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Laravel event">
-                        @error('end_date')
-                            <div class="text-sm text-red-400">{{ $message }}</div>
-                        @enderror
-                    </div>
+                  
+
+                
+                    
                     <div>
                         <label for="start_time"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
                             Time</label>
-                        <input type="time" id="start_time" name="start_time"
+                        <input type="datetime-local" id="start_time" name="start_time"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Laravel event">
+                            placeholder="Laravel event" value="{{old('start_time')}}">
                         @error('start_time')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="end_time"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End
+                            Time</label>
+                        <input type="datetime-local" id="end_time" name="end_time"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Laravel event"  value={{  old('end_time')  }}>
+                        @error('end_time')
                             <div class="text-sm text-red-400">{{ $message }}</div>
                         @enderror
                     </div>
@@ -113,7 +109,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                         <textarea id="description" name="description" rows="4"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Write your thoughts here..."></textarea>
+                            placeholder="Write your thoughts here..."  value={{old('description')}}></textarea>
                         @error('description')
                             <div class="text-sm text-red-400">{{ $message }}</div>
                         @enderror

@@ -22,14 +22,13 @@ class UpdateEventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:155|min:2',
+            'title' => 'max:155|min:2',
             'image' => 'image|nullable',
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'start_time' => 'required',
-            'university_id' => 'required',
-            'venue_id' => 'required',
-            'description' => 'required',
+            'start_time' => 'nullable',
+            'end_time' => 'nullable',
+            'university_id' => 'nullable',
+            'venue_id' => 'nullable',
+            'description' => 'nullable',
         ];
     }
 }

@@ -12,21 +12,19 @@ class Event extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'slug',
-        'description',
-        'start_date',
-        'end_date',
-        'start_time',
-        'image',
         'user_id',
+        'title',
+        'image',
+        'start_time',
+        'end_time',
+        'description',
         'university_id',
         'venue_id',
     ];
 
-    protected $casts = [
-        'start_date' => 'date:m/d/Y',
-    ];
+    // protected $casts = [
+    //     'start_time' => 'date:m/d/Y',
+    // ];
 
     public function user(): BelongsTo
     {

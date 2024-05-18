@@ -2,10 +2,10 @@
     <!-- component -->
     <section class="bg-white dark:bg-gray-900">
         <div class="container px-6 py-10 mx-auto">
-            <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">All Events</h1>
+            <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Ongoing Events</h1>
 
             <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-3">
-                @foreach ($events as $event)
+                @forelse ($events as $event)
                   
 
 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -25,10 +25,15 @@
         </a>
     </div>
 </div>
-
-                @endforeach
+@empty
+<tr style="color: white">
+    <td colspan="4" class="mb-3 font-normal dark:text-white" style="color: white">
+        <p style="color: white">No ongoing events found</p>
+    </td>
+</tr>
+                @endforelse
             </div>
-            {{$events->links()}}
+            {{-- {{$events->links()}} --}}
         </div>
     </section>
 </x-main-layout>

@@ -46,12 +46,12 @@
 
         <div class="w-full shrink-0 grow-0 lg:w-6/12 lg:pl-6 bg-slate-600 rounded-md p-2" style="height: 15em">
             <div class="flex space-x-2 justify-end text-white">
-                From:
-                <span class="mx-2   ">{{\Carbon\Carbon::parse($event->start_date)->isoFormat('MMM,  Do YYYY')  }}</span> | <span
-                    class="mx-2">{{ \Carbon\Carbon::parse($event->end_date)->isoFormat('MMM, Do YYYY')  }}</span>
+                
+                <span class="mx-2   ">{{\Carbon\Carbon::parse($event->start_date)->isoFormat('MMM,  Do YYYY')  }}</span>  
             </div>  
             <p class="mb-6 text-m text-yellow-600 dark:text-orange-200">
-                Start: <time>{{  \Carbon\Carbon::parse($event->start_time)->format('h:i A') }}</time>
+                Starts at: <time>{{  \Carbon\Carbon::parse($event->start_time)->format('h:i A') }}</time> <br>  <br>
+                End at: <time>{{  \Carbon\Carbon::parse($event->end_time)->format('h:i A') }}</time>
             </p>
             {{-- <p>
                 @foreach ($event->tags as $tag)

@@ -6,7 +6,7 @@
     <div class="py-12">
         
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-between py-6" >
+            <div class="flex justify-between py-6   " >
                 <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                     {{ __('Events') }}
                 </h2>
@@ -29,6 +29,9 @@
                                 Start Time
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                End Time
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Venue
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -44,10 +47,13 @@
                                     {{ $event->title }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ \Carbon\Carbon::parse($event->start_date)->isoFormat('MMM Do YYYY') }}
+                                    {{ \Carbon\Carbon::parse($event->start_time)->isoFormat('MMM Do YYYY') }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ \Carbon\Carbon::parse($event->start_time)->format('h:i:s A') }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ \Carbon\Carbon::parse($event->end_time)->format('h:i:s A') }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $event->venue->name }}

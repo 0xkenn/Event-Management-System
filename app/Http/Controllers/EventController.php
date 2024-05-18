@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
-use App\Models\Tag;
 use App\Models\University;
 use Exception;
 use Illuminate\Contracts\View\View;
@@ -23,7 +22,8 @@ class EventController extends Controller
      */
     public function index(): View
     {
-        $events = Event::with('venue')->get();
+
+        $events = Event::where('user_id', Auth::id())->with('venue')->get();
         return view('events.index', compact('events'));
     }
 
@@ -47,12 +47,10 @@ class EventController extends Controller
             $data = $request->validated();
             $data['user_id'] = Auth::id();
             $data['image'] = $request->file('image')->store('images', 'public');
-            $data['slug'] = Str::slug($request->title);
-
-            $event = Event::create($data);
-            return to_route('events.index');
+            Event::create($data);
+            return redirect()->route('events.index');
         } else {
-            return redirect()->back();
+            return redirect()->back()->withErrors('Error creating resource');
         }
     }
 
@@ -85,7 +83,7 @@ class EventController extends Controller
                 $data['image'] = $request->file('image')->store('images', 'public');
             }
 
-            $data['slug'] = Str::slug($request->title);
+
             $event->update($data);
             return to_route('events.index');
         } catch (Exception $e) {

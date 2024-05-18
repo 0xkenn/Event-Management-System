@@ -22,8 +22,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+        //seed university table
         University::create(['name' => 'Biliran Province State University']);
+
+
+        //seed venue table
         Venue::create(['university_id' => 1, 'name' => 'BiPSU Gym']);
+        Venue::create(['university_id' => 1, 'name' => 'Student Lounge']);
         Venue::create(['university_id' => 1, 'name' => 'Student Center']);
         Venue::create(['university_id' => 1, 'name' => 'Student Space']);
         Venue::create(['university_id' => 1, 'name' => 'HyFlex']);

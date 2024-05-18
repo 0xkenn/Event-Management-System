@@ -76,34 +76,28 @@
                             <div class="text-sm text-red-400">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div>
-                        <label for="start_date"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start Date</label>
-                        <input type="date" id="start_date" name="start_date"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            value="{{ old('start_date', $event->start_date) }}">
-                        @error('start_date')
-                            <div class="text-sm text-red-400">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End
-                            Date</label>
-                        <input type="date" id="end_date" name="end_date"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            value="{{ old('end_date', $event->end_date) }}">
-                        @error('end_date')
-                            <div class="text-sm text-red-400">{{ $message }}</div>
-                        @enderror
-                    </div>
+                  
+                  
                     <div>
                         <label for="start_time"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
                             Time</label>
-                        <input type="time" id="start_time" name="start_time"
+                        <input type="datetime-local" id="start_time" name="start_time"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value="{{ old('start_time', $event->start_time) }}">
                         @error('start_time')
+                            <div class="text-sm text-red-400">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="end_time"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End
+                            Time</label>
+                        <input type="datetime-local" id="end_time" name="end_time"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            value="{{ old('end_time', $event->end_time) }}">
+                        @error('end_time')
                             <div class="text-sm text-red-400">{{ $message }}</div>
                         @enderror
                     </div>
