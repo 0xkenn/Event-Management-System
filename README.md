@@ -1,4 +1,3 @@
-Sure, here's a simplified README file focusing on the key functionalities and a brief introduction of the Event Management System:
 
 ---
 
@@ -90,4 +89,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-This README provides a clear and concise overview of the Event Management System, highlighting its core functionalities, technologies used, and basic setup instructions. If there are any additional details you'd like to include, let me know!
