@@ -32,7 +32,7 @@ A web-based application designed to streamline the planning, management, and exe
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-repository/event-management-system.git
+   git clone https://github.com/0xkenn/event-management-system.git
    cd event-management-system
    ```
 
